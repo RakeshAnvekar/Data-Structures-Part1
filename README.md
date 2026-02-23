@@ -7,7 +7,7 @@ Asymptotic notation is a way to describe **how the performance of an algorithm c
 Instead of measuring exact time (which depends on hardware and environment), it focuses on the **growth trend**.
 
 👉 In simple words:  
-It answers the question — **“If my data becomes very large, how will my algorithm behave?”**
+ **“If my data becomes very large, how will my algorithm behave?”**
 
 ---
 
