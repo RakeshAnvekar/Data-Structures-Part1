@@ -47,7 +47,7 @@ Describes the **minimum time** an algorithm can take.
 Describes the **typical or expected time**.
 **Example**:
 👉 The algorithm will take roughly this much time in most cases.
----
+
 
 
 ## 🧩 Example Comparison
