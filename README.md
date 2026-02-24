@@ -49,19 +49,194 @@ Describes the **typical or expected time**.
 👉 The algorithm will take roughly this much time in most cases.
 ---
 
+# ⏱️ Time Complexity in Programming (Detailed, Layman Explanation + C#)
 
-## 🧩 Example Comparison
+Time complexity explains **how the running time of a program increases
+as the input size increases**.
 
-### Algorithm A — Single Loop
-```
-for (i = 0; i < n; i++)
-```
-➡ Complexity: **O(n)**
+👉 Simple idea: If your data grows from 10 items to 1,000 items, **how
+much slower will your code become?**
 
-### Algorithm B — Nested Loops
+------------------------------------------------------------------------
+
+# 📈 Why Time Complexity Matters
+
+When applications scale (large users, big files, huge datasets),
+inefficient code can become **very slow or expensive**.
+
+Time complexity helps you:
+
+-   Compare algorithms
+-   Choose efficient approaches
+-   Predict performance
+
+------------------------------------------------------------------------
+
+# 🧠 Big‑O Notation
+
+Big‑O describes the **worst‑case growth rate** of an algorithm.
+
+Common complexities:
+
+-   O(1) → Constant
+-   O(log n) → Logarithmic
+-   O(n) → Linear
+-   O(n log n) → Linearithmic
+-   O(n²) → Quadratic
+-   O(2ⁿ) → Exponential
+
+------------------------------------------------------------------------
+
+# 🟢 O(1) --- Constant Time
+
+## 🪄 Explanation
+
+The time stays the same no matter how big the input is.
+
+📌 Real life: Turning on a light switch.
+
+## 💻 C# Example
+
+``` csharp
+int[] numbers = { 10, 20, 30, 40 };
+Console.WriteLine(numbers[2]);
 ```
-for (i = 0; i < n; i++)
-  for (j = 0; j < n; j++)
+
+------------------------------------------------------------------------
+
+# 🟡 O(n) --- Linear Time
+
+## 🪄 Explanation
+
+Time grows directly with the number of items.
+
+📌 Real life: Checking attendance one by one.
+
+## 💻 C# Example
+
+``` csharp
+foreach (var num in numbers)
+{
+    Console.WriteLine(num);
+}
 ```
-➡ Complexity: **O(n²)**
+
+------------------------------------------------------------------------
+
+# 🔵 O(log n) --- Logarithmic Time
+
+## 🪄 Explanation
+
+We keep cutting the problem in half.
+
+📌 Real life: Searching a name in a dictionary.
+
+## 💻 C# Example
+
+``` csharp
+int BinarySearch(int[] arr, int target)
+{
+    int left = 0;
+    int right = arr.Length - 1;
+
+    while (left <= right)
+    {
+        int mid = (left + right) / 2;
+
+        if (arr[mid] == target) return mid;
+
+        if (arr[mid] < target)
+            left = mid + 1;
+        else
+            right = mid - 1;
+    }
+
+    return -1;
+}
+```
+
+------------------------------------------------------------------------
+
+# 🟠 O(n log n) --- Efficient Sorting
+
+## 🪄 Explanation
+
+We process all items and split them repeatedly.
+
+📌 Real life: Sorting cards efficiently.
+
+## 💻 C# Example
+
+``` csharp
+Array.Sort(numbers);
+```
+
+------------------------------------------------------------------------
+
+# 🔴 O(n²) --- Quadratic Time
+
+## 🪄 Explanation
+
+Every item compares with every other item.
+
+📌 Real life: Everyone in a room shakes hands with everyone.
+
+## 💻 C# Example
+
+``` csharp
+for (int i = 0; i < numbers.Length; i++)
+{
+    for (int j = 0; j < numbers.Length; j++)
+    {
+        Console.WriteLine(numbers[i] + ", " + numbers[j]);
+    }
+}
+```
+
+------------------------------------------------------------------------
+
+# 🚨 O(2ⁿ) --- Exponential Time
+
+## 🪄 Explanation
+
+Work doubles with each new input.
+
+📌 Real life: Trying every password combination.
+
+## 💻 C# Example
+
+``` csharp
+int Fibonacci(int n)
+{
+    if (n <= 1) return n;
+    return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
+```
+
+------------------------------------------------------------------------
+
+# 📊 Quick Comparison
+
+  Complexity   Growth            Performance
+  ------------ ----------------- -------------
+  O(1)         Constant          Very Fast
+  O(log n)     Slow growth       Fast
+  O(n)         Linear            Good
+  O(n log n)   Slightly higher   Efficient
+  O(n²)        Rapid             Slow
+  O(2ⁿ)        Explosive         Very Slow
+
+------------------------------------------------------------------------
+
+# ✅ Final Summary
+
+Time complexity is about **how your algorithm scales**.
+
+👉 The goal in real projects: Always try to choose algorithms with
+**lower growth rate**.
+
+------------------------------------------------------------------------
+
+⭐ Tip: In interviews, always explain complexity after writing code.
+
 
